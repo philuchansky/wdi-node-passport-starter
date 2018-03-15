@@ -9,7 +9,8 @@ const
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
 	MongoDBStore = require('connect-mongodb-session')(session),
-	passport = require('passport')
+	passport = require('passport'),
+	usersRouter = require('./routes/users.js')
 
 // environment port
 const
@@ -42,6 +43,8 @@ app.use(ejsLayouts)
 app.get('/', (req,res) => {
 	res.render('index')
 })
+
+app.use('/users', usersRouter)
 
 app.listen(port, (err) => {
 	console.log(err || "Server running on port " + port)
