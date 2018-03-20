@@ -8,6 +8,16 @@
 </head>
 <body>
 	<div class="container">
+		<ul>
+			<li>Home</li>
+			<% if(loggedIn) { %>
+				<li><a href="/users/profile"><%= currentUser.name %></a></li>
+				<li>Log Out</li>
+			<% } else { %>
+				<li>Sign Up</li>
+				<li>Sign In</li>
+			<% } %>
+		</ul>
 		<%- body %>
 	</div>
 </body>

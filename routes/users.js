@@ -33,6 +33,7 @@ usersRouter.get('/logout', (req, res) => {
 
 function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()) return next()
+  req.flash('loginMessage', 'Must be logged in to see that.')
   res.redirect('/users/login')
 }
 
