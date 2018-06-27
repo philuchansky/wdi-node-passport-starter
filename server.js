@@ -6,7 +6,6 @@ const
 	flash = require('connect-flash'),
 	logger = require('morgan'),
 	cookieParser = require('cookie-parser'),
-	bodyParser = require('body-parser'),
 	session = require('express-session'),
 	MongoDBStore = require('connect-mongodb-session')(session),
 	passport = require('passport'),
@@ -31,8 +30,8 @@ const store = new MongoDBStore({
 // middleware
 app.use(logger('dev'))
 app.use(cookieParser())
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
 app.use(flash())
 
 // ejs configuration
