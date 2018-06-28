@@ -28,10 +28,10 @@ const store = new MongoDBStore({
 });
 
 // middleware
-app.use(logger('dev'))
-app.use(cookieParser())
-app.use(express.urlencoded({extended: true}))
-app.use(flash())
+app.use(logger('dev')) // log incoming requests to terminal
+app.use(cookieParser()) // interpret cookies that are attached to requests
+app.use(express.urlencoded({extended: true})) // interpret standard form data in requests
+app.use(flash()) // set and reset flash messages
 
 // ejs configuration
 app.set('view engine', 'ejs')
